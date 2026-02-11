@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비둘기즈</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="흩어져도 팀, 모이면 폭격">
+    <meta name="keywords" content="비둘기즈, 성장, 협력, 도전, 팀워크">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="비둘기즈">
+    <meta property="og:description" content="흩어져도 팀, 모이면 폭격">
+    <meta property="og:image" content="team.jpeg">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Fonts - 우아하고 독특한 폰트 선택 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables - Classic Blue Theme */
+        :root {
+            --primary-dark: #1565C0;
+            --primary-main: #1976D2;
+            --primary-light: #42A5F5;
+            --primary-lightest: #E3F2FD;
+            --text-dark: #1a1a1a;
+            --text-medium: #424242;
+            --text-light: #757575;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --shadow-subtle: rgba(25, 118, 210, 0.08);
+            --shadow-medium: rgba(25, 118, 210, 0.15);
+            --shadow-strong: rgba(25, 118, 210, 0.25);
+        }
+        
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--bg-white);
+            overflow-x: hidden;
+        }
+        
+        /* Elegant Flow Animation Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes floatGentle {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        /* Scroll-triggered Animation Class */
+        .animate-on-scroll {
+            opacity: 0;
+        }
+        
+        .animate-on-scroll.is-visible {
+            animation: fadeInUp 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-main) 50%, var(--primary-light) 100%);
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            max-width: 1200px;
+            animation: fadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hero-image-container {
+            width: 280px;
+            height: 280px;
+            margin: 0 auto 3rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 60px var(--shadow-strong);
+            animation: scaleIn 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hero-image-container:hover {
+            transform: scale(1.05);
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--bg-white);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            animation: slideInLeft 1s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-slogan {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.95);
+            letter-spacing: 0.05em;
+            animation: slideInLeft 1s cubic-bezier(0.4, 0, 0.2, 1) 0.7s both;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+            letter-spacing: -0.01em;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+            font-weight: 300;
+        }
+        
+        /* Team Values Section */
+        #values {
+            background: var(--bg-light);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .value-card {
+            background: var(--bg-white);
+            padding: 3rem 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px var(--shadow-subtle);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-dark), var(--primary-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px var(--shadow-medium);
+        }
+        
+        .value-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .value-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .value-card:hover .value-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .value-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .value-description {
+            font-size: 1.05rem;
+            color: var(--text-medium);
+            line-height: 1.8;
+        }
+        
+        /* Team Members Section */
+        #members {
+            background: var(--bg-white);
+        }
+        
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .member-card {
+            background: var(--bg-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px var(--shadow-subtle);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        
+        .member-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-main), var(--primary-light));
+            opacity: 0;
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 60px var(--shadow-medium);
+        }
+        
+        .member-card:hover::after {
+            opacity: 0.1;
+        }
+        
+        .member-image-container {
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .member-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .member-card:hover .member-image {
+            transform: scale(1.1);
+        }
+        
+        .member-info {
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .member-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .member-description {
+            font-size: 1rem;
+            color: var(--text-medium);
+            line-height: 1.8;
+            white-space: pre-line;
+        }
+        
+        /* Guestbook Section */
+        #guestbook {
+            background: var(--primary-lightest);
+        }
+        
+        .guestbook-container {
+            background: var(--bg-white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px var(--shadow-subtle);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-main));
+            color: var(--bg-white);
+            text-align: center;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="footergrid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23footergrid)"/></svg>');
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        footer p {
+            font-size: 1rem;
+            opacity: 0.95;
+            letter-spacing: 0.02em;
+        }
+        
+        footer a {
+            color: var(--bg-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+        
+        footer a:hover {
+            opacity: 0.8;
+            border-bottom-color: var(--bg-white);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-slogan {
+                font-size: 1.4rem;
+            }
+            
+            .hero-image-container {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            section {
+                padding: 4rem 1.5rem;
+            }
+            
+            .values-grid,
+            .members-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .guestbook-container {
+                padding: 2rem 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-slogan {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .value-card,
+            .member-info {
+                padding: 2rem 1.5rem;
+            }
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-main);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-image-container">
+                <img src="team.jpeg" alt="비둘기즈 팀 사진" class="hero-image">
+            </div>
+            <h1 class="hero-title">비둘기즈</h1>
+            <p class="hero-slogan">흩어져도 팀, 모이면 폭격</p>
+        </div>
+    </section>
+
+    <!-- Team Values Section -->
+    <section id="values">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Team Values</h2>
+            <p class="section-subtitle animate-on-scroll">우리가 중요하게 생각하는 핵심 가치</p>
+            
+            <div class="values-grid">
+                <div class="value-card animate-on-scroll">
+                    <div class="value-icon">🌱</div>
+                    <h3 class="value-title">성장</h3>
+                    <p class="value-description">어제의 나보다 나아지는 것을 중요하게 생각합니다.</p>
+                </div>
+                
+                <div class="value-card animate-on-scroll">
+                    <div class="value-icon">🤝</div>
+                    <h3 class="value-title">협력</h3>
+                    <p class="value-description">서로 도우며 함께 목표를 이룹니다.</p>
+                </div>
+                
+                <div class="value-card animate-on-scroll">
+                    <div class="value-icon">🚀</div>
+                    <h3 class="value-title">도전</h3>
+                    <p class="value-description">실패를 두려워하지 않고 새로운 시도를 주저하지 않습니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Members Section -->
+    <section id="members">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Team Members</h2>
+            <p class="section-subtitle animate-on-scroll">함께하는 우리 팀을 소개합니다</p>
+            
+            <div class="members-grid">
+                <div class="member-card animate-on-scroll">
+                    <div class="member-image-container">
+                        <img src="member1.jpeg" alt="김채윤" class="member-image">
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">김채윤</h3>
+                        <p class="member-description">전공: 경영학부
+관심분야 : 회계
+목표: 회계사</p>
+                    </div>
+                </div>
+                
+                <div class="member-card animate-on-scroll">
+                    <div class="member-image-container">
+                        <img src="member2.jpeg" alt="이민석" class="member-image">
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">이민석</h3>
+                        <p class="member-description">전공: 경영학부
+관심분야 : 마케팅
+목표: 롯데 그룹 전문 마케터</p>
+                    </div>
+                </div>
+                
+                <div class="member-card animate-on-scroll">
+                    <div class="member-image-container">
+                        <img src="member3.jpeg" alt="정서윤" class="member-image">
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">정서윤</h3>
+                        <p class="member-description">전공: 경제금융학부
+관심분야 : 금융
+목표: 금융공기업 입사</p>
+                    </div>
+                </div>
+                
+                <div class="member-card animate-on-scroll">
+                    <div class="member-image-container">
+                        <img src="member4.jpeg" alt="지준영" class="member-image">
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">지준영</h3>
+                        <p class="member-description">전공: 경제금융학부
+관심분야 : 경제
+목표: 금융공기업 입사</p>
+                    </div>
+                </div>
+                
+                <div class="member-card animate-on-scroll">
+                    <div class="member-image-container">
+                        <img src="member5.jpeg" alt="최종훈" class="member-image">
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">최종훈</h3>
+                        <p class="member-description">전공: 경제금융학부
+관심분야 : 금융
+목표: IB전문 은행원</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guestbook Section -->
+    <section id="guestbook">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Guestbook</h2>
+            <p class="section-subtitle animate-on-scroll">여러분의 소중한 방문 흔적을 남겨주세요</p>
+            
+            <div class="guestbook-container animate-on-scroll">
+                <!-- Guestbook -->
+                <script src="https://utteranc.es/client.js"
+                        repo="aitrizkr/aiws_sm2026"
+                        issue-term="pathname"
+                        label="방명록"
+                        theme="github-light"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 비둘기즈. Powered by <a href="https://ai.triz.kr" target="_blank" rel="noopener noreferrer">AI Portfolio Workshop</a>.</p>
+        </div>
+    </footer>
+
+    <!-- Elegant Flow Animation Script -->
+    <script>
+        // Scroll Animation Observer
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Staggered animation delay for elegant flow effect
+                    setTimeout(() => {
+                        entry.target.classList.add('is-visible');
+                    }, index * 100);
+                    
+                    // Unobserve after animation to prevent re-triggering
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all elements with animate-on-scroll class
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+        
+        // Smooth parallax effect on hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-content');
+            if (hero && scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.4}px)`;
+                hero.style.opacity = 1 - (scrolled / window.innerHeight) * 0.8;
+            }
+        });
+        
+        // Add smooth hover effect to cards
+        const cards = document.querySelectorAll('.value-card, .member-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                this.style.setProperty('--mouse-x', `${x}px`);
+                this.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body>
+</html>
